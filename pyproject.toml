@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "spa project"
+version = "0.1.0"
+description = ""
+authors = ["AnastasiaR <anastasia.romanova3169@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.2"
+djangorestframework = "^3.16.0"
+dotenv = "^0.9.9"
+psycopg2 = "^2.9.10"
+pillow = "^11.2.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
