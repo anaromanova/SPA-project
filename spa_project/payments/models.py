@@ -25,6 +25,21 @@ class Payment(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     method = models.CharField(max_length=10,
                               choices=PAYMENT_METHODS)
+    stripe_product_id = models.CharField(max_length=255, blank=True, null=True)
+    stripe_price_id = models.CharField(max_length=255, blank=True, null=True)
+    stripe_session_id = models.CharField(max_length=255, blank=True, null=True)
+    payment_url = models.URLField(blank=True, null=True)
+
+    STATUS_CHOICES = [
+                ('created', 'Создана'),
+                ('paid', 'Оплачена'),
+                ('failed', 'Неудачно'),
+        ]
+    status = models.CharField(
+            max_length = 20,
+            choices = STATUS_CHOICES,
+            default = 'created',
+        )
 
     def __str__(self):
         target = self.course or self.lesson

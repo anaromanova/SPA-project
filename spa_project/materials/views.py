@@ -5,7 +5,7 @@ from .models      import Course, Lesson, Subscription
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from .permissions import NotModeratorCannotModify, IsOwnerOrReadOnly
 from .serializers import CourseSerializer, LessonSerializer, SubscriptionSerializer
-from .paginations  import StandardResultsSetPagination
+from .pagination  import StandardResultsSetPagination
 
 class CourseViewSet(viewsets.ModelViewSet):
     queryset = Course.objects.all()

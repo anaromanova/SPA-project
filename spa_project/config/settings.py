@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'spa_project.users',
     'spa_project.materials',
     'spa_project.payments',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +69,17 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_PAGINATION_CLASS': 'spa_project.materials.pagination.StandardResultsSetPagination',
+    'PAGE_SIZE': 10,
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'My SPA Project API',
+    'DESCRIPTION': 'Документация API для управления курсами, уроками и платежами',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    'COMPONENT_SPLIT_REQUEST': True,
 }
 
 ROOT_URLCONF = "spa_project.config.urls"
@@ -155,3 +167,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 AUTH_USER_MODEL = 'users.CustomUser'
+
+STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY")
+STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY")
