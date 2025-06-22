@@ -1,0 +1,1 @@
+default_app_config = 'spa_project.materials.apps.MaterialsConfig'
