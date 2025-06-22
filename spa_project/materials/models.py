@@ -42,6 +42,7 @@ class Lesson(models.Model):
                 related_name = 'lessons',
                 null=False, blank=False,
                                 )
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"{self.title} ({self.course.title})"
